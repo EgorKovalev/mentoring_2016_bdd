@@ -18,6 +18,7 @@ public class LoginPage extends TopMenu {
 
     public boolean isUserLoggedIn(){
         try{
+            topMenu.waitForPageToLoad();
             return enterLink().isDisplayed();
         }
         catch(NoSuchElementException ex){
@@ -47,6 +48,12 @@ public class LoginPage extends TopMenu {
     }
 
     public void switchToEnglish(){
+        navigateToBaseUrl();
         topMenu.switchToEnglish();
+    }
+
+    public void logOut(){
+        navigateToBaseUrl();
+        topMenu.logOut();
     }
 }

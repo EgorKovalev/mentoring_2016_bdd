@@ -59,6 +59,7 @@ public class BaseStepDef extends BaseSelenium {
     @Then("^I verify that checkout page is displayed$")
     public void iVerifyThatCheckoutPageIsDisplayed(){
         assertTrue(cartPage.paymentMethodControl().isDisplayed());
+        loginPage.logOut();
     }
 
     @When("^I go to cart$")
@@ -72,6 +73,7 @@ public class BaseStepDef extends BaseSelenium {
         cartPage.waitForPageToLoad();
         navigateTo(cartUrl);
         assertTrue(cartPage.productsNumberInCart() != 0);
+        loginPage.logOut();
     }
 
     @When("^Switch locale to English$")
