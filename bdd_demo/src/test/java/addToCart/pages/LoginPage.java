@@ -1,5 +1,6 @@
 package addToCart.pages;
 
+import addToCart.businessLogic.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -30,8 +31,8 @@ public class LoginPage extends TopMenu {
         return driver.findElement(By.id("sgnBt"));
     }
 
-    public void enterCredentials(){
-        actions.sendKeys(username).sendKeys(Keys.TAB).sendKeys(password).build().perform();
+    public void enterCredentials(User user){
+        actions.sendKeys(user.getUserName()).sendKeys(Keys.TAB).sendKeys(user.getPassword()).build().perform();
     }
 
     public boolean secretQuestionsFormIsDisplayed(){
@@ -54,6 +55,7 @@ public class LoginPage extends TopMenu {
 
     public void logOut(){
         navigateToBaseUrl();
+        topMenu.waitForPageToLoad();
         topMenu.logOut();
     }
 }

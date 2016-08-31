@@ -1,5 +1,6 @@
 package addToCart.steps;
 
+import addToCart.businessLogic.User;
 import addToCart.pages.LoginPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -7,6 +8,7 @@ import selenium.BaseSelenium;
 
 public class LoginStepDef extends BaseSelenium {
     LoginPage loginPage = new LoginPage();
+    User user = new User();
 
     @Given("^Logged in user$")
     public void loggedInUser(){
@@ -14,7 +16,7 @@ public class LoginStepDef extends BaseSelenium {
 
         if(loginPage.isUserLoggedIn()) {
             loginPage.enterLink().click();
-            loginPage.enterCredentials();
+            loginPage.enterCredentials(user);
             loginPage.loginButton().click();
         }
 

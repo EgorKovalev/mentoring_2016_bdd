@@ -12,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseSelenium {
     public static WebDriver driver;
     protected static Actions actions;
-    protected String username = "agressorxxx";
-    protected String password = "8405363sca";
 
     public static void init(){
         //System.setProperty("webdriver.chrome.driver", "c:\\tools\\chromedriver.exe");
